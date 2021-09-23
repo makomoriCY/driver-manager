@@ -4,23 +4,31 @@ import "./Login.css";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dataUsername = "xxx@gmail";
+  const dataPassword = "123456";
 
   function login() {
-    const data = {
-      user: username,
-      pass: password
+    if (username === dataUsername && password === dataPassword) {
+      alert("สำเร็จ");
+      setPassword("");
+      setUsername("");
+    } else {
+      alert("ผิด");
     }
-    alert(data)
+  }
+  function clear() {
+    setUsername("");
+    setPassword("");
   }
 
   return (
     <div className="login__page">
       <h1>Login page </h1>
-      <div>
+      <div className="Login__input">
         <p>username </p>
         <input value={username} onChange={(e) => setUsername(e.target.value)} />
       </div>
-      <div>
+      <div className="Login__input">
         <p>password</p>
         <input
           value={password}
@@ -29,8 +37,8 @@ const Login = () => {
         />
       </div>
       <div className="btn__Login">
-        <button onClick={login} >Login</button>
-        <button>Register</button>
+        <button onClick={login}>Login</button>
+        <button onClick={clear}>clear</button>
       </div>
     </div>
   );

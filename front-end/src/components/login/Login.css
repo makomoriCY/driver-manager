@@ -6,7 +6,12 @@
   height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1551150441-649e0b074fe4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
   object-fit: cover;
-  color: rgb(16, 12, 243);
+  color: rgb(242, 242, 247);
+}
+.Login__input > input{
+  height: 25px;
+  width: 200px;
+  border-radius: 8px;
 }
 .btn__Login{
   justify-content: center;
