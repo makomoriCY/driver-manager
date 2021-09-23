@@ -4,7 +4,14 @@ import "./Login.css";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  console.log({ username });
+
+  function login() {
+    const data = {
+      user: username,
+      pass: password
+    }
+    alert(data)
+  }
 
   return (
     <div className="login__page">
@@ -22,7 +29,7 @@ const Login = () => {
         />
       </div>
       <div className="btn__Login">
-        <button>Login</button>
+        <button onClick={login} >Login</button>
         <button>Register</button>
       </div>
     </div>
