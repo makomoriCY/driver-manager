@@ -1,8 +1,9 @@
 import React from "react";
+import "./Login.css";
 
 const Login = () => {
   return (
-    <div>
+    <div className="login__page">
       <h1>Login page </h1>
       <div>
         <p>username </p>
