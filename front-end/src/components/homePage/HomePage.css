@@ -1,12 +1,30 @@
 .home__page{
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.container__home{
+  width: 900px;
+  height: 700px;
+  border: 3px solid #859398;
+  margin: 2% 0 0 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  background-color: #D9AFD9;
+background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
 
 }
+
 .box__top{
   display: flex;
-  flex:0.7;
-  
 }
+
 .box__buttom{
-flex: 0.3;
+  display: flex;
+
 }
