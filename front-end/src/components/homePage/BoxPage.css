@@ -1,5 +1,30 @@
 .box__page{
     width: 200px;
     height: 200px;
-    background-color: aqua;
+    background: rgba(255, 94, 8, 1.0);
+background: -webkit-linear-gradient(top left, rgba(255, 94, 8, 1.0), rgba(122, 18, 236, 1.0));
+background: -moz-linear-gradient(top left, rgba(255, 94, 8, 1.0), rgba(122, 18, 236, 1.0));
+background: linear-gradient(to bottom right, rgba(255, 94, 8, 1.0), rgba(122, 18, 236, 1.0));
+    position: relative;
+    border-radius: 8px;
+    font-size: 26px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 20px 0 0;
+    cursor: pointer;
+    color: rgb(192, 193, 245);
+
+}
+.box__page:hover{
+transform: scale(1.05);
+}
+.box__page > img {
+    height: 60px;
+    width: 40px;
+    position: absolute ;
+    top: 5px;
+    right: 15px;
+    
+
 }
