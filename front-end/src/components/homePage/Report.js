@@ -1,11 +1,10 @@
 import React from "react";
 import "./Report.css";
 
-const Report = ({ title, subtitle }) => {
+const Report = ({ title }) => {
   return (
     <div className="report__page">
       <h5>{title}</h5>
-      <p>{subtitle}</p>
     </div>
   );
 };
