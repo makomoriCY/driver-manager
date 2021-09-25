@@ -8,6 +8,10 @@ const HomePage = () => {
     <div className="home__page">
       <div className='container__home' >
 
+        <div className="search" >
+          <input/>
+        </div>
+
       <div className="box__top">
         <Link to="/driver">
         <BoxPage
