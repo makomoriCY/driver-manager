@@ -1,0 +1,13 @@
+.Dver__page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Btn__back{
+  position: absolute ;
+    top: 15px;
+    left: 15px;
+    background-color: darkgoldenrod;
+    height: 50px;
+    width: 100px;
+}

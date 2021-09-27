@@ -8,7 +8,7 @@ const HomePage = () => {
     <div className="home__page">
       <div className='container__home' >
 
-        <div className="search" >
+        <div  >
           <input/>
         </div>
 
