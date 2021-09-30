@@ -10,6 +10,7 @@ const HomePage = () => {
 
         <div  >
           <input/>
+          <button>ค้นหา</button>
         </div>
 
       <div className="box__top">

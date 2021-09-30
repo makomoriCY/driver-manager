@@ -3,6 +3,18 @@
   flex-direction: column;
   align-items: center;
 }
+.Box{
+  background-color: rgba(255, 0, 157, 0.781);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Text__ip{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 0 0;
+}
 .Btn__back{
   position: absolute ;
     top: 15px;
@@ -10,4 +22,13 @@
     background-color: darkgoldenrod;
     height: 50px;
     width: 100px;
+}
+.confirm{
+  margin: 25px 0 0 0;
+
+}
+
+.T{
+  height: 350px;
+  width: 500px;
 }

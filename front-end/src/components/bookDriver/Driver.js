@@ -1,15 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Driver.css";
-import Calendar from 'react-calendar';
 
 const Driver = () => {
   return (
     
     <div className="Dver__page">
       <h1>รายการจอง</h1>
-      <div>
-        <input></input>
+      <div  className="Box" >
+        
+
+        <div>
+          <button>เลือกประเภคการจอง</button>
+        </div>
+
+        <div className="Text__ip">
+          <p1>ชื่อ</p1>
+          <input />
+          <p1>นามสกูล</p1>
+          <input />
+          <p1>แผนก</p1>
+          <input />
+          <p1>จุดประสงค์</p1>
+          <input className="T" />
+        </div>
+
+        <div className="confirm">
+          <button>ตกลง</button>
+          <button>ยกเลิก</button>
+        </div>
       </div>
 
       <Link to="/">
