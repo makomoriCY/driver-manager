@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Driver.css";
+import Calendar from "react-calendar";
 
 const Driver = () => {
   return (
@@ -11,7 +12,7 @@ const Driver = () => {
         
 
         <div>
-          <button>เลือกประเภคการจอง</button>
+          <button>เลือกประเภการจอง</button>
         </div>
 
         <div className="Text__ip">
@@ -29,6 +30,7 @@ const Driver = () => {
           <button>ตกลง</button>
           <button>ยกเลิก</button>
         </div>
+        <Calendar/>
       </div>
 
       <Link to="/">
