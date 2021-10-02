@@ -1,24 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Driver.css";
-import Calendar from "react-calendar";
 
 const Driver = () => {
   return (
-    
     <div className="Dver__page">
       <h1>รายการจอง</h1>
-      <div  className="Box" >
-        
-
+      <div className="Box">
         <div>
-          <button>เลือกประเภการจอง</button>
+          <button>เลือกประเภทการจอง</button>
         </div>
+
+        <input type="date" />
 
         <div className="Text__ip">
           <p1>ชื่อ</p1>
           <input />
-          <p1>นามสกูล</p1>
+          <p1>นามสกุล</p1>
           <input />
           <p1>แผนก</p1>
           <input />
@@ -30,7 +28,7 @@ const Driver = () => {
           <button>ตกลง</button>
           <button>ยกเลิก</button>
         </div>
-        <Calendar/>
+        
       </div>
 
       <Link to="/">
