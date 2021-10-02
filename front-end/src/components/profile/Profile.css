@@ -32,14 +32,6 @@
   font-size: 26px;
   text-align: center;
 }
-.btn__back{
-  position: absolute ;
-    top: 15px;
-    left: 15px;
-    background-color: darkgoldenrod;
-    height: 50px;
-    width: 100px;
-}
 .name__box{
   font-size: 26px;
 }

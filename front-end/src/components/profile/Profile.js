@@ -9,7 +9,7 @@ const Profile = () => {
   return (
     <div className="profile__page" >
       <Link to="/">
-      <button className="btn__back" >ย้อนกลับ</button>
+      <button className="Btn__back" >ย้อนกลับ</button>
       </Link>
       <h1>
         ข้อมูลส่วนตัว
