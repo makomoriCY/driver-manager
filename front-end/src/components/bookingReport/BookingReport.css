@@ -1,0 +1,14 @@
+.background___page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.BOX__Book{
+  background-color: rgba(250, 250, 250, 0.781);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  height: 650px;
+  width: 830px;
+}

@@ -11,11 +11,12 @@
 }
 .table__container{
   display: flex;
-  background-color: aquamarine;
+  background-color: rgb(244, 248, 247);
   border:1px solid black;
   height: 250px;
-  width: 90%;
+  width: 80%;
   justify-content: center;
+  border-radius: 4px;
   
 }
 .table__container > table, th, td {
