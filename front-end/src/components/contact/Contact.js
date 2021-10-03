@@ -7,7 +7,7 @@ const Contact = () => {
     <div className="background___page">
       <h1>ติดต่อเรา</h1>
       <div className="Box">
-        <p>8;k,</p>
+        <p>ติดต่อเรา</p>
       </div>
       <Link to="/">
         <button className="Btn__back">ย้อนกลับ</button>
