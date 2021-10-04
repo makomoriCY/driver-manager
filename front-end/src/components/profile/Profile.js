@@ -12,7 +12,7 @@ const Profile = () => {
       </Link>
 
       <h1>ข้อมูลส่วนตัว</h1>
-      <img src="https://png.pngtree.com/png-vector/20190704/ourlarge/pngtree-businessman-user-avatar-free-vector-png-image_1538405.jpg" />
+      <img src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg" />
       <div className="name__box">
         <p>ชื่อ: {name}</p>
         <p> แผนก: {department} </p>

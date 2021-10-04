@@ -5,7 +5,7 @@ import "./Driver.css";
 const Driver = () => {
   const [time, setTime] = useState("");
   const [type, setType] = useState("");
-  const [date, setDate] = useState();
+  const [date, setDate] = useState("");
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [depart, setDepart] = useState("");

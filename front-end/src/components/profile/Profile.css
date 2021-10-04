@@ -34,5 +34,12 @@
   text-align: center;
 }
 .name__box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  width: 80%;
+  background-color: rgb(245, 245, 245);
   font-size: 26px;
+  border-radius: 4px;
 }
