@@ -21,7 +21,7 @@ const Contact = () => {
           <input />
           <p>อีเมล์</p>
           <input />
-          <p>รายงนาปัญหา</p>
+          <p>รายงานปัญหา</p>
           <textarea
             rows="8"/>
         </div>

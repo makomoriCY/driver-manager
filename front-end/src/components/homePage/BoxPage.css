@@ -3,18 +3,17 @@
     height: 200px;
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    
     position: relative;
     border-radius: 8px;
     font-size: 26px;
     align-items: center;
     display: flex;
     justify-content: center;
-    margin: 0 20px 0 0;
     cursor: pointer;
     color: rgb(59, 57, 57);
-    margin: 5% 5% 0 0;
+    margin: 40px 60px 0 0;
     border: 2px solid #859398;
+    
 
 }
 .box__page:hover{

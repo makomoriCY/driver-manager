@@ -7,11 +7,6 @@ const HomePage = () => {
   return (
     <div className="home__page">
       <div className="container__home">
-        <div>
-          <input />
-          <button>ค้นหา</button>
-        </div>
-
         <div className="box__top">
           <Link to="/driver" style={{ textDecoration: "none" }}>
             <BoxPage
