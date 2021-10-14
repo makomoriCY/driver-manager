@@ -10,6 +10,7 @@ const Driver = () => {
   const [lastname, setLastname] = useState("");
   const [depart, setDepart] = useState("");
   const [objective, setObjective] = useState("");
+  const [place, setPlace] = useState("");
 
   function submit() {
     const data = {
@@ -20,11 +21,22 @@ const Driver = () => {
       objective: objective,
       type: type,
       time: time,
+      place:place
+
     };
     if (!(date && type && lastname && depart && objective && time && name)) {
       console.log("กรุณากรอกข้อมูลให้ครบถ้วน");
     } else {
       console.log(data);
+      setDate("")
+      setDepart("")
+      setLastname("")
+      setName("")
+      setObjective("")
+      setPlace("")
+      setTime("")
+      setType("")
+      
     }
   }
   return (
@@ -63,6 +75,8 @@ const Driver = () => {
           />
           <p1>แผนก</p1>
           <input value={depart} onChange={(e) => setDepart(e.target.value)} />
+          <p1>สถานที่</p1>
+          <input value={place} onChange={(e) => setPlace(e.target.value)} />
           <p1>จุดประสงค์</p1>
           <textarea
             rows="8"

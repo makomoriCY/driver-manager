@@ -1,11 +1,36 @@
+import { report } from "process";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Contact.css";
 
 const Contact = () => {
 
-  const [name, setName] = useState ('');
-  console.log()
+  const [name, setName] = useState ("");
+  const [surName, setSurname] = useState (""); 
+  const [depart, setDepart] = useState (""); 
+  const [email, setEmail] = useState (""); 
+  const [report, setReport] = useState (""); 
+
+  function submit () {
+    const data ={
+      name:name,
+      surName:surName,
+      depart:depart,
+      email:email,
+      report:report
+    };
+    if (!( name  && depart && email && depart && surName)) {
+      console.log("กรุณากรอกข้อมูลให้ครบถ้วน");
+    } else {
+      console.log(data);
+      setName("")
+      setDepart("")
+      setEmail("")
+      setSurname("")
+      setReport("")
+      
+    }
+  }
 
   return (
     <div className="background___page">
@@ -14,19 +39,19 @@ const Contact = () => {
       <div className="Box">
         <div className="Text__Box" >
           <p>ชื่อ</p>
-          <input onChange={(e) => setName(e.target.value)} />
+          <input value={name} onChange={(e) => setName(e.target.value)} />
           <p>นามสกุล</p>
-          <input />
+          <input value={surName} onChange={(e) => setSurname(e.target.value)} />
           <p>แผนก</p>
-          <input />
+          <input value={depart} onChange={(e) => setDepart(e.target.value)} />
           <p>อีเมล์</p>
-          <input />
+          <input value={email} onChange={(e) => setEmail(e.target.value)} />
           <p>รายงานปัญหา</p>
-          <textarea
+          <textarea value={report} onChange={(e) => setReport(e.target.value)}
             rows="8"/>
         </div>
         <div className="Back__confirm" >
-          <button>ตกลง</button>
+          <button onClick={submit} >ตกลง</button>
           <Link to="/">
           <button>ยกเลิก</button>
           </Link>

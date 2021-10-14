@@ -1,39 +1,32 @@
-.profile__page{
+.profile__page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
-.profile__page > img{
+.profile__page > img {
   border-radius: 50%;
   height: 250px;
   width: 250px;
 }
-.table__container{
+.table__container {
   display: flex;
   background-color: rgb(244, 248, 247);
-  border:1px solid black;
+  border: 1px solid black;
   height: 250px;
   width: 80%;
   justify-content: center;
   border-radius: 4px;
-  
 }
-.table__container > table, th, td {
-  border:1.5px solid black;
-}
-.table__left{
-  margin: 0 10% 0 0;
-}
-.table__left > p {
-  font-size: 26px;
-  text-align: center;
+.table__container > table,
+th,
+td {
+  border: 1.5px solid black;
 }
 .table__right > p {
   font-size: 26px;
   text-align: center;
 }
-.name__box{
+.name__box {
   display: flex;
   flex-direction: column;
   align-items: center;
