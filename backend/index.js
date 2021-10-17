@@ -24,5 +24,9 @@ connection.once('open', () => console.log('DB connect'))
 app.use(express.json())
 app.use(cors())
 
+// Route
+const scheduleRouter = require('./routes/ScheduleRoute')
+app.use('/schedule', scheduleRouter)
+
 
 app.listen(port, () => console.log(`Running on port:${port}`))
