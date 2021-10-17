@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Driver.css";
+import axios from "axios";
 
 const Driver = () => {
   const [time, setTime] = useState("");
@@ -21,22 +22,25 @@ const Driver = () => {
       objective: objective,
       type: type,
       time: time,
-      place:place
-
+      place: place,
     };
     if (!(date && type && lastname && depart && objective && time && name)) {
       console.log("กรุณากรอกข้อมูลให้ครบถ้วน");
     } else {
-      console.log(data);
-      setDate("")
-      setDepart("")
-      setLastname("")
-      setName("")
-      setObjective("")
-      setPlace("")
-      setTime("")
-      setType("")
-      
+      axios
+        .post("http://localhost:8080/schedule", data)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+        
+
+      setDate("");
+      setDepart("");
+      setLastname("");
+      setName("");
+      setObjective("");
+      setPlace("");
+      setTime("");
+      setType("");
     }
   }
   return (
