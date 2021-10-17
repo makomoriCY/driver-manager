@@ -14,7 +14,7 @@ const Driver = () => {
   const [place, setPlace] = useState("");
 
   function submit() {
-    const data = {
+    const post = {
       startDate: date,
       surname: name,
       lastname: lastname,
@@ -28,7 +28,7 @@ const Driver = () => {
       console.log("กรุณากรอกข้อมูลให้ครบถ้วน");
     } else {
       axios
-        .post("/schedule", data)
+        .post("/schedule", post)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
         

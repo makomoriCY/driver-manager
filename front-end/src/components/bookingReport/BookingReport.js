@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./BookingReport.css";
-import {dataDriven} from "../../data";
+
+import axios from "../../axios";
 
 const BookingReport = () => {
-  console.log(dataDriven);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("schedule")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="background___page">
       <h1>รายการจอง</h1>
@@ -19,7 +27,7 @@ const BookingReport = () => {
             <th>วันที่</th>
             <th>เวลา</th>
           </tr>
-          {dataDriven.map((item, index) => {
+          {data.map((item, index) => {
             return (
               <tr key={index}>
                 <td>{`${item.surname} ${item.lastname}`}</td>

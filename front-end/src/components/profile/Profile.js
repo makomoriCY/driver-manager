@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 import { dataUser1 } from "../../data";
+import axios from "../../axios";
 
 const Profile = () => {
- 
-  function deleteData(id){
-console.log(id)
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("schedule")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  function deleteData(id) {
+    axios.delete(`schedule/${id}`)
+    .then(() =>console.log("ลบข้อมูล"))
+    .catch((err) => console.log(err));
+    loadlist()
   }
-  function editData(id){
-    console.log(id)
+
+  function loadlist(){
+    axios
+      .get("schedule")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }
+
+  function editData(id) {
+    console.log(id);
   }
   return (
     <div className="profile__page">
@@ -37,9 +56,9 @@ console.log(id)
               <th>แก้ไข</th>
               <th>ลบ</th>
             </tr>
-            {dataUser1.map((item, index) => {
+            {data.map((item) => {
               return (
-                <tr key={index}>
+                <tr key={item._id}>
                   <td>{`${item.surname} ${item.lastname}`}</td>
                   <td>{item.type}</td>
                   <td>{item.objective}</td>
@@ -47,10 +66,10 @@ console.log(id)
                   <td>{item.startDate}</td>
                   <td>{item.time}</td>
                   <td>
-                    <button onClick={()=>editData(index)} >แก้ไข</button>
+                    <button onClick={() => editData(item._id)}>แก้ไข</button>
                   </td>
                   <td>
-                    <button onClick={()=>deleteData(index)} >ลบ</button>
+                    <button onClick={() => deleteData(item._id)}>ลบ</button>
                   </td>
                 </tr>
               );
