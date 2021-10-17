@@ -4,8 +4,7 @@ import "./Profile.css";
 import { dataUser1 } from "../../data";
 
 const Profile = () => {
-  const name = "tititititi";
-  const department = "ป้องกันภัย";
+ 
   function deleteData(id){
 console.log(id)
   }
