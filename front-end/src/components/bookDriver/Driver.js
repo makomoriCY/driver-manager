@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Driver.css";
-import axios from "axios";
+import axios from "../../axios";
 
 const Driver = () => {
   const [time, setTime] = useState("");
@@ -28,7 +28,7 @@ const Driver = () => {
       console.log("กรุณากรอกข้อมูลให้ครบถ้วน");
     } else {
       axios
-        .post("http://localhost:8080/schedule", data)
+        .post("/schedule", data)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
         
