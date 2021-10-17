@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080
 const uri = process.env.ATLAS_URI
 
 mongoose.connect(uri, {
-    useCreateIndex:true,
+    // useCreateIndex:true,
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
