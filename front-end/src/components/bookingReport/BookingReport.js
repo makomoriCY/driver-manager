@@ -21,21 +21,29 @@ const BookingReport = () => {
         <table className="Text__P">
           <tr>
             <th>ชื่อผู้จอง</th>
+            <th>แผนก</th>
             <th>ประเภท</th>
             <th>วัดถุประสงค์</th>
             <th>สถานที่</th>
-            <th>วันที่</th>
-            <th>เวลา</th>
+            <th>วันที่เริ่ม</th>
+            <th>วันที่สิ้นสุด</th>
+            <th>เวลาเริ่ม</th>
+            <th>เวลาสิ้นสุด</th>
+            <th>อนุมัติ</th>
           </tr>
           {data.map((item, index) => {
             return (
               <tr key={index}>
                 <td>{`${item.surname} ${item.lastname}`}</td>
+                <td>{item.Department}</td>
                 <td>{item.type}</td>
                 <td>{item.objective}</td>
                 <td>{item.place}</td>
                 <td>{item.startDate}</td>
-                <td>{item.time}</td>
+                <td>{item.endDate}</td>
+                <td>{item.timestart}</td>
+                <td>{item.timeend}</td>
+                <td>{item.approve}</td>
               </tr>
             );
           })}

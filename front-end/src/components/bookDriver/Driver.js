@@ -12,6 +12,7 @@ const Driver = () => {
   const [depart, setDepart] = useState("");
   const [objective, setObjective] = useState("");
   const [place, setPlace] = useState("");
+  
 
   function submit() {
     const post = {
@@ -31,7 +32,6 @@ const Driver = () => {
         .post("/schedule", post)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
-        
 
       setDate("");
       setDepart("");
@@ -52,6 +52,7 @@ const Driver = () => {
             <option value="">เลือกประเภทการจอง</option>
             <option value="รถกระบะ">รถกระบะ</option>
             <option value="รถตู้">รถตู้</option>
+            <option value="รถตู้">รถบรรทุกหกล้อ</option>
             <option value="คนส่งเอกสาร">คนส่งเอกสาร</option>
           </select>
         </div>
@@ -62,12 +63,17 @@ const Driver = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-          <input
+        </div>
+        <input
             type="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
           />
-        </div>
+          <input
+            type="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+          />  
 
         <div className="Text__ip">
           <p1>ชื่อ</p1>
