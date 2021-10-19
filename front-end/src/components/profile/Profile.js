@@ -12,6 +12,7 @@ const Profile = () => {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
+  console.log(data)
 
   function deleteData(id) {
     axios
@@ -64,14 +65,14 @@ const Profile = () => {
               return (
                 <tr key={item._id}>
                   <td>{`${item.surname} ${item.lastname}`}</td>
-                  <td>{item.Department}</td>
+                  <td>{item.department}</td>
                   <td>{item.type}</td>
                   <td>{item.objective}</td>
                   <td>{item.place}</td>
                   <td>{item.startDate}</td>
                   <td>{item.endDate}</td>
-                  <td>{item.timestart}</td>
-                  <td>{item.timeend}</td>
+                  <td>{item.startTime}</td>
+                  <td>{item.endTime}</td>
                   <td>{item.approve}</td>
                   <td>
                     <button onClick={() => deleteData(item._id)}>ลบ</button>

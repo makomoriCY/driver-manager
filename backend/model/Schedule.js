@@ -10,7 +10,10 @@ const ScheduleSchema = new Schema({
     objective : {type:String, require:true},
     type : {type:String, require:true},
     time : {type:String, require:true},
-    place : {type:String, require:true}
+    place : {type:String, require:true},
+    endDate : {type:String, require:true},
+    endTime : {type:String, require:true},
+    startTime : {type:String, require:true}
 })
 
 // ปั้น schema ส่งออก

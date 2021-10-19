@@ -18,7 +18,11 @@ router.post('/', (req, res) => {
     objective: req.body.objective,
     type: req.body.type,
     time: req.body.time,
-    place: req.body.place
+    place: req.body.place,
+    endTime: req.body.endTime,
+    startTime: req.body.startTime,
+    endDate: req.body.endDate
+    
   })
 
   schedule

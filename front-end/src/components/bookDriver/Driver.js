@@ -4,7 +4,8 @@ import "./Driver.css";
 import axios from "../../axios";
 
 const Driver = () => {
-  const [time, setTime] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
   const [type, setType] = useState("");
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
@@ -12,20 +13,34 @@ const Driver = () => {
   const [depart, setDepart] = useState("");
   const [objective, setObjective] = useState("");
   const [place, setPlace] = useState("");
-  
+  const [enddate, setEnddate] = useState("");
 
   function submit() {
     const post = {
       startDate: date,
+      endDate: enddate,
       surname: name,
       lastname: lastname,
       department: depart,
       objective: objective,
       type: type,
-      time: time,
+      startTime: startTime,
+      endTime: endTime,
       place: place,
     };
-    if (!(date && type && lastname && depart && objective && time && name)) {
+    if (
+      !(
+        date &&
+        type &&
+        lastname &&
+        depart &&
+        objective &&
+        name &&
+        startTime &&
+        endTime &&
+        enddate
+      )
+    ) {
       console.log("กรุณากรอกข้อมูลให้ครบถ้วน");
     } else {
       axios
@@ -39,8 +54,10 @@ const Driver = () => {
       setName("");
       setObjective("");
       setPlace("");
-      setTime("");
+      setStartTime("");
       setType("");
+      setEndTime("");
+      console.log(post);
     }
   }
   return (
@@ -63,17 +80,22 @@ const Driver = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
+          <input
+            type="date"
+            value={enddate}
+            onChange={(e) => setEnddate(e.target.value)}
+          />
         </div>
         <input
-            type="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-          <input
-            type="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />  
+          type="time"
+          value={startTime}
+          onChange={(e) => setStartTime(e.target.value)}
+        />
+        <input
+          type="time"
+          value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}
+        />
 
         <div className="Text__ip">
           <p1>ชื่อ</p1>
