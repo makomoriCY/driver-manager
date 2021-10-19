@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Profile.css";
 import { dataUser1 } from "../../data";
 import axios from "../../axios";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Profile = () => {
   const [data, setData] = useState([]);
@@ -37,7 +38,7 @@ const Profile = () => {
       <Link to="/">
         <button className="Btn__back">ย้อนกลับ</button>
       </Link>
-
+      <AccountCircleIcon/>
       <h1>ข้อมูลส่วนตัว</h1>
       <img src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg" />
       <div className="name__box">
