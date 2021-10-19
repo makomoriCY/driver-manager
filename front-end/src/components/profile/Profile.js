@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Profile.css";
 import { dataUser1 } from "../../data";
 import axios from "../../axios";
-import Button from '@mui/material/Button';
+import testlogo from "../../testlogo.png";
 
 const Profile = () => {
   const [data, setData] = useState([]);
@@ -13,7 +13,7 @@ const Profile = () => {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(data)
+  console.log(data);
 
   function deleteData(id) {
     axios
@@ -34,11 +34,13 @@ const Profile = () => {
     console.log(id);
   }
   return (
-    <div className="profile__page">
+    <div
+      className="profile__page"
+      style={{ backgroundImage: `url(${testlogo})`, backgroundSize: "35%",backgroundRepeat: "no-repeat",backgroundPosition: "center" }}
+    >
       <Link to="/">
         <button className="Btn__back">ย้อนกลับ</button>
       </Link>
-      <Button variant="contained">ทดสอบปุ่ม</Button>
       <h1>ข้อมูลส่วนตัว</h1>
       <img src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg" />
       <div className="name__box">
