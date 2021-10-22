@@ -1,10 +1,13 @@
-.home__page{
+.home__page {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  background-image: "testlogo.png";
+  background-color: #F98736;
 }
-.container__home{
+/* .container__home {
   width: 1200px;
   height: 700px;
   border: 3px solid #859398;
@@ -13,20 +16,13 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border-radius: 6px;
-  background-color: #D9AFD9;
-background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
   
+} */
 
-
+.box__top {
+  display: flex;
 }
 
-.box__top{
+.box__buttom {
   display: flex;
-  
-}
-
-.box__buttom{
-  display: flex;
-
 }

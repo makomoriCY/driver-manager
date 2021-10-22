@@ -7,6 +7,7 @@ const HomePage = () => {
   return (
     <div className="home__page">
       <div className="container__home">
+        <h1>ตารางกำหนดการจองรถ</h1>
         <div className="box__top">
           <Link to="/driver" style={{ textDecoration: "none" }}>
             <BoxPage

@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  background-color:#F98736;
+
   
   
 }
@@ -12,8 +15,8 @@
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  height: 550px;
-  width: 350px;
+  height: 650px;
+  width: 450px;
   
 }
 .Text__ip{

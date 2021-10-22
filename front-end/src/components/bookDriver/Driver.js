@@ -74,7 +74,7 @@ const Driver = () => {
           </select>
         </div>
         <div>
-          <p> เวลาที่ต้องการจอง </p>
+          <p>เวลาที่ต้องการจอง</p>
           <input
             type="date"
             value={date}
@@ -107,13 +107,17 @@ const Driver = () => {
           />
           <p1>แผนก</p1>
           <input value={depart} onChange={(e) => setDepart(e.target.value)} />
-          <p1>สถานที่</p1>
-          <input value={place} onChange={(e) => setPlace(e.target.value)} />
           <p1>จุดประสงค์</p1>
           <textarea
-            rows="8"
+            rows="3"
             value={objective}
             onChange={(e) => setObjective(e.target.value)}
+          />
+          <p1>จุดหมายปลายทาง</p1>
+          <textarea
+            rows="8"
+            value={place}
+            onChange={(e) => setPlace(e.target.value)}
           />
         </div>
 
