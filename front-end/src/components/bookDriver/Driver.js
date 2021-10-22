@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Button from '@mui/material/Button';
 import "./Driver.css";
 import axios from "../../axios";
 
@@ -106,7 +109,7 @@ const Driver = () => {
             onChange={(e) => setLastname(e.target.value)}
           />
           <p1>แผนก</p1>
-          <input value={depart} onChange={(e) => setDepart(e.target.value)} />
+          <input value={depart} onChange={(e) => setDepart(e.target.value)} type="number" />
           <p1>จุดประสงค์</p1>
           <textarea
             rows="3"
@@ -130,7 +133,11 @@ const Driver = () => {
       </div>
 
       <Link to="/">
-        <button className="Btn__back">ย้อนกลับ</button>
+        <div className="Btn__back" >
+      <Button  variant="contained" startIcon={<ArrowBackIosIcon />}>
+        ย้อนกลับ
+      </Button>
+      </div>
       </Link>
     </div>
   );

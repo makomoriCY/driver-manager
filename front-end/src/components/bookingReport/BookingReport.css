@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   background-color:#F98736;
+  height: 100%;
 }
 .BOX__Book{
   background-color: rgba(212, 136, 241, 0.781);

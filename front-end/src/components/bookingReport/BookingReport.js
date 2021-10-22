@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./BookingReport.css";
-
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Button from '@mui/material/Button';
 import axios from "../../axios";
 
 const BookingReport = () => {
@@ -52,7 +53,11 @@ const BookingReport = () => {
       </div>
 
       <Link to="/">
-        <button className="Btn__back">ย้อนกลับ</button>
+      <div className="Btn__back" >
+      <Button  variant="contained" startIcon={<ArrowBackIosIcon />}>
+        ย้อนกลับ
+      </Button>
+      </div>
       </Link>
     </div>
   );

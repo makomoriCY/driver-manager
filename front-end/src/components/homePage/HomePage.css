@@ -6,19 +6,8 @@
   text-align: center;
   background-image: "testlogo.png";
   background-color: #F98736;
+height: 100%;
 }
-/* .container__home {
-  width: 1200px;
-  height: 700px;
-  border: 3px solid #859398;
-  margin: 2% 0 0 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  
-} */
-
 .box__top {
   display: flex;
 }

@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import "./Profile.css";
-import { dataUser1 } from "../../data";
 import axios from "../../axios";
-import testlogo from "../../testlogo.png";
 
 const Profile = () => {
   const [data, setData] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(true);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const ID = "123456789";
+  const PASSWORD = "123456789";
+
+  function login() {
+    if (ID === username && password === PASSWORD) {
+      setIsAdmin(true);
+    }
+  }
+
   useEffect(() => {
     axios
       .get("schedule")
@@ -36,56 +48,78 @@ const Profile = () => {
   return (
     <div
       className="profile__page"
-      style={{ backgroundImage: `url(${testlogo})`, backgroundSize: "35%",backgroundRepeat: "no-repeat",backgroundPosition: "center" }}
     >
       <Link to="/">
-        <button className="Btn__back">ย้อนกลับ</button>
+      <div className="Btn__back" >
+      <Button  variant="contained" startIcon={<ArrowBackIosIcon />}>
+        ย้อนกลับ
+      </Button>
+      </div>
       </Link>
-      <h1>ข้อมูลส่วนตัว</h1>
-      <img src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg" />
-      <div className="name__box">
-        <p>ชื่อ: {`${dataUser1[0].surname} ${dataUser1[0].lastname}`} </p>
-        <p> แผนก: {dataUser1[0].department} </p>
-      </div>
-      <div className="table__container">
-        <div className="table__right">
-          <p>ประวัติการจอง</p>
-          <table>
-            <tr>
-              <th>ชื่อ</th>
-              <th>แผนก</th>
-              <th>ประเภท</th>
-              <th>วัดถุประสงค์</th>
-              <th>จุดหมายปลายทาง</th>
-              <th>วันที่เริ่ม</th>
-              <th>วันที่สิ้นสุด</th>
-              <th>เวลาเริ่ม</th>
-              <th>เวลาสิ้นสุด</th>
-              <th>อนุมัติ</th>
-              <th>ลบ</th>
-            </tr>
-            {data.map((item) => {
-              return (
-                <tr key={item._id}>
-                  <td>{`${item.surname} ${item.lastname}`}</td>
-                  <td>{item.department}</td>
-                  <td>{item.type}</td>
-                  <td>{item.objective}</td>
-                  <td>{item.place}</td>
-                  <td>{item.startDate}</td>
-                  <td>{item.endDate}</td>
-                  <td>{item.startTime}</td>
-                  <td>{item.endTime}</td>
-                  <td>{item.approve}</td>
-                  <td>
-                    <button onClick={() => deleteData(item._id)}>ลบ</button>
-                  </td>
-                </tr>
-              );
-            })}
-          </table>
+      <h1>จัดการตารางการจอง</h1>
+      {isAdmin === false ? (
+        <div className="Box" >
+        <div className="Login" >
+          <h1>กรุณากรอบรหัส</h1>
+          <h3>username</h3>
+          <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <h3>password</h3>
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+          />
+          <div>
+            <button onClick={login}>Login</button>
+          </div>
         </div>
-      </div>
+        </div>
+      ) : (
+        <div className="BOX__Book" >
+        <div >
+          <div className="table__right">
+            <p>ตารางการจอง</p>
+            <table>
+              <tr>
+                <th>ชื่อ</th>
+                <th>แผนก</th>
+                <th>ประเภท</th>
+                <th>วัดถุประสงค์</th>
+                <th>จุดหมายปลายทาง</th>
+                <th>วันที่เริ่ม</th>
+                <th>วันที่สิ้นสุด</th>
+                <th>เวลาเริ่ม</th>
+                <th>เวลาสิ้นสุด</th>
+                <th>อนุมัติ</th>
+                <th>ลบ</th>
+              </tr>
+              {data.map((item) => {
+                return (
+                  <tr key={item._id}>
+                    <td>{`${item.surname} ${item.lastname}`}</td>
+                    <td>{item.department}</td>
+                    <td>{item.type}</td>
+                    <td>{item.objective}</td>
+                    <td>{item.place}</td>
+                    <td>{item.startDate}</td>
+                    <td>{item.endDate}</td>
+                    <td>{item.startTime}</td>
+                    <td>{item.endTime}</td>
+                    <td>{item.approve}</td>
+                    <td>
+                      <button onClick={() => deleteData(item._id)}>ลบ</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </table>
+          </div>
+        </div>
+        </div>
+      )}
     </div>
   );
 };

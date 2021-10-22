@@ -2,23 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:#F98736;
+  background-color: #f98736;
+  height: 100%;
 }
 .profile__page > img {
   border-radius: 50%;
   height: 250px;
-  width: 250px; 
+  width: 250px;
   background-position: center;
 }
-.table__container {
-  display: flex;
-  background-color: rgb(244, 248, 247);
-  border: 1px solid black;
-  height: 250px;
-  width: 80%;
-  justify-content: center;
-  border-radius: 4px;
-}
+
 .table__container > table,
 th,
 td {
@@ -34,9 +27,13 @@ td {
   align-items: center;
   height: 150px;
   width: 40%;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 255, 255);
   font-size: 26px;
   border-radius: 12px;
   opacity: 0.8;
 }
-
+.Login {
+  margin: 10% 0 0 0;
+  align-items: center;
+  text-align: center;
+}

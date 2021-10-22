@@ -2,6 +2,8 @@ import { report } from "process";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Contact.css";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Button from '@mui/material/Button';
 
 const Contact = () => {
 
@@ -59,7 +61,11 @@ const Contact = () => {
       </div>
 
       <Link to="/">
-        <button className="Btn__back">ย้อนกลับ</button>
+      <div className="Btn__back" >
+      <Button  variant="contained" startIcon={<ArrowBackIosIcon />}>
+        ย้อนกลับ
+      </Button>
+      </div>
       </Link>
     </div>
   );
