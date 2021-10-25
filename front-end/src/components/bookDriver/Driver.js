@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import Button from '@mui/material/Button';
+import SaveSharpIcon from "@mui/icons-material/SaveSharp";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import Button from "@mui/material/Button";
 import "./Driver.css";
 import axios from "../../axios";
+import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
+import { TextField } from "@mui/material";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const Driver = () => {
   const [startTime, setStartTime] = useState("");
@@ -65,79 +72,146 @@ const Driver = () => {
   }
   return (
     <div className="Dver__page">
-      <h1>รายการจอง</h1>
+      <h1>จองคนขับ</h1>
       <div className="Box">
-        <div>
-          <select value={type} onChange={(e) => setType(e.target.value)}>
-            <option value="">เลือกประเภทการจอง</option>
-            <option value="รถกระบะ">รถกระบะ</option>
-            <option value="รถตู้">รถตู้</option>
-            <option value="รถตู้">รถบรรทุกหกล้อ</option>
-            <option value="คนส่งเอกสาร">คนส่งเอกสาร</option>
-          </select>
+        <div className="input__margin">
+          <InputLabel id="demo-simple-select-helper-label">
+            เลือกประเภทการจอง
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
+            label="Age"
+            fullWidth
+          >
+            <MenuItem value="รถกระบะ">รถกระบะ</MenuItem>
+            <MenuItem value="รถตู้">รถตู้</MenuItem>
+            <MenuItem value="รถบรรทุกหกล้อ">รถบรรทุกหกล้อ</MenuItem>
+            <MenuItem value="คนส่งเอกสาร">คนส่งเอกสาร</MenuItem>
+          </Select>
         </div>
-        <div>
-          <p>เวลาที่ต้องการจอง</p>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-          <input
-            type="date"
-            value={enddate}
-            onChange={(e) => setEnddate(e.target.value)}
-          />
+        <div className="date__box">
+          <div className="input__margin">
+            <TextField
+              color="primary"
+              fullWidth
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
+          <div className="input__margin">
+            <TextField
+              color="primary"
+              fullWidth
+              type="date"
+              value={enddate}
+              onChange={(e) => setEnddate(e.target.value)}
+            />
+          </div>
         </div>
-        <input
-          type="time"
-          value={startTime}
-          onChange={(e) => setStartTime(e.target.value)}
-        />
-        <input
-          type="time"
-          value={endTime}
-          onChange={(e) => setEndTime(e.target.value)}
-        />
+
+        <div className="time__box">
+          <div className="input__margin">
+            <TextField
+              color="primary"
+              fullWidth
+              type="time"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}
+            />
+          </div>
+          <div className="input__margin">
+            <TextField
+              color="primary"
+              fullWidth
+              type="time"
+              value={endTime}
+              onChange={(e) => setEndTime(e.target.value)}
+            />
+          </div>
+        </div>
 
         <div className="Text__ip">
-          <p1>ชื่อ</p1>
-          <input value={name} onChange={(e) => setName(e.target.value)} />
-          <p1>นามสกุล</p1>
-          <input
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
-          />
-          <p1>แผนก</p1>
-          <input value={depart} onChange={(e) => setDepart(e.target.value)} type="number" />
-          <p1>จุดประสงค์</p1>
-          <textarea
-            rows="3"
-            value={objective}
-            onChange={(e) => setObjective(e.target.value)}
-          />
-          <p1>จุดหมายปลายทาง</p1>
-          <textarea
-            rows="8"
-            value={place}
-            onChange={(e) => setPlace(e.target.value)}
-          />
+          <div className="input__margin">
+            <TextField
+              label="ชื่อ"
+              color="primary"
+              fullWidth
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="input__margin">
+            <TextField
+              label="นามสกุล"
+              color="primary"
+              fullWidth
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+            />
+          </div>
+          <div className="input__margin">
+            <TextField
+              label="แผนก"
+              color="primary"
+              fullWidth
+              value={depart}
+              onChange={(e) => setDepart(e.target.value)}
+              type="number"
+            />
+          </div>
+          <div className="input__margin">
+            <TextField
+              label="จุดประสงค์"
+              multiline
+              fullWidth
+              rows={2}
+              value={objective}
+              onChange={(e) => setObjective(e.target.value)}
+            />
+          </div>
+          <div className="input__margin">
+            <TextField
+              label="จุดหมายปลายทาง"
+              multiline
+              fullWidth
+              rows={2}
+              value={place}
+              onChange={(e) => setPlace(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="confirm">
-          <button onClick={submit}>ตกลง</button>
-          <Link to="/">
-            <button>ยกเลิก</button>
-          </Link>
+          <Button
+            variant="contained"
+            startIcon={<SaveSharpIcon />}
+            onClick={submit}
+          >
+            ตกลง
+          </Button>
+
+          <div className="back__01">
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                startIcon={<CloseTwoToneIcon />}
+                color="warning"
+              >
+                ยกเลิก
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
 
       <Link to="/">
-        <div className="Btn__back" >
-      <Button  variant="contained" startIcon={<ArrowBackIosIcon />}>
-        ย้อนกลับ
-      </Button>
-      </div>
+        <div className="Btn__back">
+          <Button variant="contained" startIcon={<ArrowBackIosIcon />}>
+            ย้อนกลับ
+          </Button>
+        </div>
       </Link>
     </div>
   );

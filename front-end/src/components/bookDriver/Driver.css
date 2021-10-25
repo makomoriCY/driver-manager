@@ -1,42 +1,53 @@
-.Dver__page{
-  
+.Dver__page {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color:#F98736;
+  background-color: #f98736;
   height: 100%;
-
-  
-  
 }
-.Box{
-  background-color: rgba(149, 10, 204, 0.781);
+.Box {
+  background-color: rgba(246, 240, 248, 0.781);
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  height: 650px;
-  width: 450px;
-  
+  height: 100%;
+  width: 60%;
 }
-.Text__ip{
+.Text__ip {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px 0 0 0;
+  width: 100%;
 }
-.Btn__back{
-  position: absolute ;
-    top: 15px;
-    left: 15px;
+.Btn__back {
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
-.confirm{
+.confirm {
+  display: flex;
   margin: 25px 0 0 0;
-
 }
 
-.T{
+.T {
   height: 350px;
   width: 500px;
+}
+.back__01 {
+  margin: 0 0 0 20px;
+}
+.input__margin {
+  width: 60%;
+  margin: 15px 0 0 0;
+}
+.time__box {
+  width: 60%;
+  display:flex
+}
+.date__box{
+  display: flex;
+  width: 60%;
 }

@@ -5,7 +5,8 @@
   align-items: center;
   text-align: center;
   background-image: "testlogo.png";
-  background-color: #F98736;
+  /* background-color: #F98736; */
+  background-image: linear-gradient( 358.4deg,  rgba(249,151,119,1) -2.1%, rgba(98,58,162,1) 90% );
 height: 100%;
 }
 .box__top {

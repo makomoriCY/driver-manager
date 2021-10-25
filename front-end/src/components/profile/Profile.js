@@ -1,9 +1,30 @@
 import React, { useState, useEffect } from "react";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import Button from '@mui/material/Button';
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 import axios from "../../axios";
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import DeleteIcon from '@mui/icons-material/Delete';
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({}));
 
 const Profile = () => {
   const [data, setData] = useState([]);
@@ -42,82 +63,123 @@ const Profile = () => {
       .catch((err) => console.log(err));
   }
 
-  function editData(id) {
-    console.log(id);
-  }
+
   return (
-    <div
-      className="profile__page"
-    >
+    <div className="profile__page">
       <Link to="/">
-      <div className="Btn__back" >
-      <Button  variant="contained" startIcon={<ArrowBackIosIcon />}>
-        ย้อนกลับ
-      </Button>
-      </div>
+        <div className="Btn__back">
+          <Button variant="contained" startIcon={<ArrowBackIosIcon />}>
+            ย้อนกลับ
+          </Button>
+        </div>
       </Link>
       <h1>จัดการตารางการจอง</h1>
       {isAdmin === false ? (
-        <div className="Box" >
-        <div className="Login" >
-          <h1>กรุณากรอบรหัส</h1>
-          <h3>username</h3>
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <h3>password</h3>
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-          />
-          <div>
-            <button onClick={login}>Login</button>
+        <div className="Box">
+          <div className="Login">
+            <h1>กรุณากรอบรหัส</h1>
+            <h3>username</h3>
+            <input
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <h3>password</h3>
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+            />
+            <div>
+              <button onClick={login}>Login</button>
+            </div>
           </div>
-        </div>
         </div>
       ) : (
-        <div className="BOX__Book" >
-        <div >
-          <div className="table__right">
-            <p>ตารางการจอง</p>
-            <table>
-              <tr>
-                <th>ชื่อ</th>
-                <th>แผนก</th>
-                <th>ประเภท</th>
-                <th>วัดถุประสงค์</th>
-                <th>จุดหมายปลายทาง</th>
-                <th>วันที่เริ่ม</th>
-                <th>วันที่สิ้นสุด</th>
-                <th>เวลาเริ่ม</th>
-                <th>เวลาสิ้นสุด</th>
-                <th>อนุมัติ</th>
-                <th>ลบ</th>
-              </tr>
-              {data.map((item) => {
-                return (
-                  <tr key={item._id}>
-                    <td>{`${item.surname} ${item.lastname}`}</td>
-                    <td>{item.department}</td>
-                    <td>{item.type}</td>
-                    <td>{item.objective}</td>
-                    <td>{item.place}</td>
-                    <td>{item.startDate}</td>
-                    <td>{item.endDate}</td>
-                    <td>{item.startTime}</td>
-                    <td>{item.endTime}</td>
-                    <td>{item.approve}</td>
-                    <td>
-                      <button onClick={() => deleteData(item._id)}>ลบ</button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </table>
+        <div className="BOX__Book">
+          <div>
+            <div className="table__right">
+              <TableContainer component={Paper}>
+                <Table aria-label="customized table">
+                  <TableHead>
+                    <TableRow>
+                      <StyledTableCell>ชื่อผู้จอง</StyledTableCell>
+                      <StyledTableCell align="right">แผนก</StyledTableCell>
+                      <StyledTableCell align="right">ประเภท</StyledTableCell>
+                      <StyledTableCell align="right">
+                        วัดถุประสงค์
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        จุดหมายปลายทาง
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        วันที่เริ่ม
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        วันที่สิ้นสุด
+                      </StyledTableCell>
+                      <StyledTableCell align="right">เวลาเริ่ม</StyledTableCell>
+                      <StyledTableCell align="right">
+                        เวลาสิ้นสุด
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        ผู้อนุมัติ
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        สถานะคำร้อง
+                      </StyledTableCell>
+                      <StyledTableCell align="right">ลบข้อมูล</StyledTableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {data.map((item, index) => (
+                      <StyledTableRow key={index}>
+                        <StyledTableCell component="th" scope="row">
+                          {`${item.surname} ${item.lastname}`}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.department}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.type}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.objective}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.place}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.startDate}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.endDate}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.startTime}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.endTime}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          {item.approve}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          รอดำเนินการ
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                        <Button variant="contained" startIcon={<DeleteIcon />} color="error" onClick={()=>deleteData(item._id)} >
+            ลบข้อมูล
+          </Button>
+                        </StyledTableCell>
+                      </StyledTableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+
+              
+            </div>
           </div>
-        </div>
         </div>
       )}
     </div>
