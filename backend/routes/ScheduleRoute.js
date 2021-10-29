@@ -36,13 +36,6 @@ router.put('/:id', (req, res) => {
   scheduleModel
     .findById(req.params.id)
     .then(data => {
-      ;(data.startDate = req.body.startDate),
-        (data.surname = req.body.surname),
-        (data.department = req.body.department),
-        (data.objective = req.body.objective),
-        (data.type = req.body.type),
-        (data.time = req.body.time),
-        (data.place = req.body.place),
         (data.status = req.body.status),
         (data.approve = req.body.approve)
 
