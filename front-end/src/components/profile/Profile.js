@@ -57,12 +57,7 @@ const Profile = () => {
     }
   }
 
-  useEffect(() => {
-    axios
-      .get('schedule')
-      .then(res => setData(res.data))
-      .catch(err => console.log(err))
-  }, [])
+  
   console.log(data)
 
   function deleteData (id) {
@@ -83,12 +78,13 @@ const Profile = () => {
         .put(`schedule/${id}`, data)
         .then(() => console.log('ลบข้อมูล'))
         .catch(err => console.log(err))
-      handleClose()
-      loadlist()
-      setWarning(false)
+        refreh()
     } else {
       setWarning(true)
     }
+  }
+  function refreh () {
+    window.location.reload()
   }
 
   function loadlist () {
@@ -97,6 +93,12 @@ const Profile = () => {
       .then(res => setData(res.data))
       .catch(err => console.log(err))
   }
+  useEffect(() => {
+    axios
+      .get('schedule')
+      .then(res => setData(res.data))
+      .catch(err => console.log(err))
+  }, [])
 
   return (
     <div className='profile__page'>
