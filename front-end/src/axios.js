@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL:'https://git.heroku.com/driver-backend1.git'
+    baseURL:'https://driver-backend1.herokuapp.com'
 })
 
 export default instance
