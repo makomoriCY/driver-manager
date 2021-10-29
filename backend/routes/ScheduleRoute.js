@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
 
   schedule
     .save()
-    .then(() => res.json('Post Succesfuly!'))
+    .then(sendnotification("ทดสอบ"))
     .catch(err => res.status(400).json(`error:${err}`))
 })
 
@@ -60,5 +60,33 @@ router.delete('/:id', (req, res) => {
     .then(() => res.json('Delete!'))
     .catch(err => res.status(400).json(`error:${err}`))
 })
+
+function sendnotification(msg){
+  var token = req.body.token;
+  var message = req.body.message;
+ 
+  request({
+    method: 'POST',
+    uri: 'https://notify-api.line.me/api/notify',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    auth: {
+      'bearer': token
+    },
+    form: {
+      message: message
+    }
+  }, (err, httpResponse, body) => {
+    if(err){
+      console.log(err);
+    } else {
+      res.json({
+        httpResponse: httpResponse,
+        body: msg
+      });
+    }
+  });
+}
 
 module.exports = router
