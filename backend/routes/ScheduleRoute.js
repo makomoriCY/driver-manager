@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const scheduleModel = require('../model/Schedule')
+var request = require('request');
 
 router.get('/', (req, res) => {
   scheduleModel
@@ -41,7 +42,7 @@ router.put('/:id', (req, res) => {
 
       data
         .save()
-        .then(sendnotification("ทดสอบ"))
+        .then(sendnotification(req.params.id))
         .catch(err => res.status(400).json(`error:${err}`))
     })
     .catch(err => res.status(400).json(`error:${err}`))
@@ -61,9 +62,19 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(400).json(`error:${err}`))
 })
 
-function sendnotification(msg){
+function sendnotification(id){
+  var msg = {}
+  scheduleModel
+    .findById(id)
+    .then(data => msg = res.json(data))
+    .catch(err => res.status(400).json(`error:${err}`))
+
   var token = 'KgyAfQs2PLJxra6vcWGnPumDagveZKdmXZyE7FKuHAg';
-  var message = "ลองส่ง";
+  var message = msg.aprrove;
+
+  var sendData = `มีงานที่ : ${msg.place} คนอนุมัติ: ${msg.aprrove}`
+
+  console.log(msg)
  
   request({
     method: 'POST',
@@ -77,16 +88,43 @@ function sendnotification(msg){
     form: {
       message: message
     }
-  }, (err, httpResponse, body) => {
+  }, (err, httpResponse) => {
     if(err){
       console.log(err);
     } else {
       res.json({
         httpResponse: httpResponse,
-        body: msg
+        body: sendData
       });
     }
   });
 }
+
+// router.post('/test', function(req, res) {
+//   var token = 'KgyAfQs2PLJxra6vcWGnPumDagveZKdmXZyE7FKuHAg';
+//   var message = "ลองส่ง";
+//   request({
+//     method: 'POST',
+//     uri: 'https://notify-api.line.me/api/notify',
+//     headers: {
+//       'Content-Type': 'application/x-www-form-urlencoded'
+//     },
+//     auth: {
+//       'bearer': token
+//     },
+//     form: {
+//       message: message
+//     }
+//   }, (err, httpResponse, body) => {
+//     if(err){
+//       console.log(err);
+//     } else {
+//       res.json({
+//         httpResponse: httpResponse,
+//         body: "เทส"
+//       });
+//     }
+//   });
+// });
 
 module.exports = router
