@@ -42,7 +42,8 @@ router.put('/:id', (req, res) => {
 
       data
         .save()
-        .then(sendnotification(req.params.id))
+        .then(sendnotification(data.surname, data.department, data.type, data.approve))
+        .then(() => res.json('Succesfuly!'))
         .catch(err => res.status(400).json(`error:${err}`))
     })
     .catch(err => res.status(400).json(`error:${err}`))
@@ -62,19 +63,14 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(400).json(`error:${err}`))
 })
 
-function sendnotification(id){
-  var msg = {}
-  scheduleModel
-    .findById(id)
-    .then(data => msg = res.json(data))
-    .catch(err => res.status(400).json(`error:${err}`))
+function sendnotification(name, department, type, approve){
 
+  var sendData = `ชื่อผู้จอง : ${name} แผนก: ${department} ประเภทรถ: ${type} คนอนุมัติ: ${approve} `
   var token = 'KgyAfQs2PLJxra6vcWGnPumDagveZKdmXZyE7FKuHAg';
-  var message = msg.aprrove;
+  var message = sendData;
 
-  var sendData = `มีงานที่ : ${msg.place} คนอนุมัติ: ${msg.aprrove}`
 
-  console.log(msg)
+  console.log({message})
  
   request({
     method: 'POST',
@@ -92,10 +88,7 @@ function sendnotification(id){
     if(err){
       console.log(err);
     } else {
-      res.json({
-        httpResponse: httpResponse,
-        body: sendData
-      });
+      console.log('send notification')
     }
   });
 }

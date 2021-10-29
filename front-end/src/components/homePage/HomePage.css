@@ -1,12 +1,9 @@
 .home__page {
-  display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
   text-align: center;
-  background-image: "testlogo.png";
-  /* background-color: #F98736; */
-  background-image: linear-gradient( 358.4deg,  rgba(249,151,119,1) -2.1%, rgba(98,58,162,1) 90% );
+  background-size: cover;
+  background-image: url(https://cdni-hw.ch7.com/dm/sz-md/i/images/2021/07/27/610013a910bc07.74680384.jpg);
 height: 100%;
 }
 .box__top {

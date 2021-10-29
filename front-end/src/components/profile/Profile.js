@@ -79,7 +79,7 @@ const Profile = () => {
     if (approve !== '') {
       const edit = await axios
         .put(`schedule/${id}`, data)
-        .then(() => console.log('ลบข้อมูล'))
+        .then(() => console.log('อนุมัติ'))
         .catch(err => console.log(err))
       await loadlist()
       setWarning(false)
@@ -136,7 +136,7 @@ const Profile = () => {
         </div>
       ) : (
         <div className='BOX__Book'>
-          <div>
+          <div className="BOX" >
             <div className='table__right'>
               <TableContainer component={Paper}>
                 <Table aria-label='customized table'>
