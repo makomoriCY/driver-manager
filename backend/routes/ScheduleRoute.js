@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
 
   schedule
     .save()
-    .then(sendnotification("ทดสอบ"))
+    .then(() => res.json('Save Succesfuly!'))
     .catch(err => res.status(400).json(`error:${err}`))
 })
 
@@ -41,7 +41,7 @@ router.put('/:id', (req, res) => {
 
       data
         .save()
-        .then(() => res.json('Update Succesfuly!'))
+        .then(sendnotification("ทดสอบ"))
         .catch(err => res.status(400).json(`error:${err}`))
     })
     .catch(err => res.status(400).json(`error:${err}`))
