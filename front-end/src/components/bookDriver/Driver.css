@@ -3,11 +3,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #f98736;
+  background-size: cover;
+  background-image: url(https://images.unsplash.com/photo-1635463497167-c474531c7ca9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80);
   height: 100%;
 }
 .Box {
-  background-color: rgba(246, 240, 248, 0.781);
+  background-color: rgba(214, 204, 218, 0.781);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,4 +51,10 @@
 .date__box{
   display: flex;
   width: 60%;
+}
+.input__margint{
+  display: flex;
+}
+.P{
+  margin: 10px 0 0 0;
 }

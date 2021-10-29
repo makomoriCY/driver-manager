@@ -2,18 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:#F98736;
+  background-size: cover;
+  background-image: url(https://static.thairath.co.th/media/4DQpjUtzLUwmJZZO80Rt2AP9etHdGdT3VWlnNjAmW20B.jpg);
   height: 100%;
 }
-/* .BOX__Book{
-  background-color: rgba(212, 136, 241, 0.781);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
-  height: 650px;
-  width: 1300px;
-} */
+
 .Text__P{
   margin:  25px 0 0 0;
 }

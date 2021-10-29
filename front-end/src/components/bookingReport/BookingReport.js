@@ -40,7 +40,7 @@ const BookingReport = () => {
     <div className="background___page">
       <h1>รายการจอง</h1>
 
-      <div className="BOX__Book">
+      <div className="BOX">
         <TableContainer component={Paper}>
           <Table aria-label="customized table">
             <TableHead>

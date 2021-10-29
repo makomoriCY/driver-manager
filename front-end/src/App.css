@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Koh Santepheap', cursive;
+  font-family: 'Mali', cursive;
+  color: #000000;
+  
   /* background-image: url("https://static.thairath.co.th/media/4DQpjUtzLUwmJZZO80Rt2AP9etHdGdT3VWlnNjAmW20B.jpg"); */
   height: 100vh;
   
