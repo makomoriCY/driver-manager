@@ -78,12 +78,14 @@ const Profile = () => {
       status: 'อนุมัติคำร้อง',
       approve: approve
     }
-    if(approve !== ""){
+    if (approve !== '') {
       axios
-      .put(`schedule/${id}`, data)
-      .then(() => console.log('ลบข้อมูล'))
-      .catch(err => console.log(err))
-    loadlist()
+        .put(`schedule/${id}`, data)
+        .then(() => console.log('ลบข้อมูล'))
+        .catch(err => console.log(err))
+      handleClose()
+      loadlist()
+      setWarning(false)
     } else {
       setWarning(true)
     }
@@ -228,10 +230,13 @@ const Profile = () => {
                             {'กรุณากรอกชื่อผู้อนุมัติ'}
                           </DialogTitle>
                           <DialogContent>
-                            {warning === true ? <p>กรุณากรอกข้อมูล</p>: null  }
+                            {warning === true ? (
+                              <p style={{ color: 'red' }}>กรุณากรอกข้อมูล</p>
+                            ) : null}
                             <TextField
                               color='primary'
                               fullWidth
+                              label='ลงชื่อผู้อนุมติ'
                               value={approve}
                               onChange={e => setApprove(e.target.value)}
                             />
