@@ -62,8 +62,8 @@ router.delete('/:id', (req, res) => {
 })
 
 function sendnotification(msg){
-  var token = req.body.token;
-  var message = req.body.message;
+  var token = 'KgyAfQs2PLJxra6vcWGnPumDagveZKdmXZyE7FKuHAg';
+  var message = "ลองส่ง";
  
   request({
     method: 'POST',
