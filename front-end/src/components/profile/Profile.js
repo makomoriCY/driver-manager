@@ -68,6 +68,7 @@ const Profile = () => {
   }
 
   async function approveData (id) {
+    console.log('approveData id', id)
     const data = {
       status: 'อนุมัติคำร้อง',
       approve: approve
@@ -77,13 +78,12 @@ const Profile = () => {
         .put(`schedule/${id}`, data)
         .then(() => console.log('ลบข้อมูล'))
         .catch(err => console.log(err))
-      refreh()
+      const load = await loadlist()
+      const warn = await setWarning(false)
+      const close = await handleClose()
     } else {
       setWarning(true)
     }
-  }
-  function refreh () {
-    window.location.reload()
   }
 
   function loadlist () {
