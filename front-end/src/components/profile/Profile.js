@@ -41,14 +41,17 @@ const Profile = () => {
   const PASSWORD = '123456789'
   const [open, setOpen] = useState(false)
   const [approve, setApprove] = useState('')
+  const [itemId, setItemId] = useState('')
   const [warning, setWarning] = useState(false)
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (id) => {
     setOpen(true)
+    setItemId(id)
   }
 
   const handleClose = () => {
     setOpen(false)
+    setItemId('')
   }
 
   function login () {
@@ -78,9 +81,11 @@ const Profile = () => {
         .put(`schedule/${id}`, data)
         .then(() => console.log('ลบข้อมูล'))
         .catch(err => console.log(err))
-      const load = await loadlist()
-      const warn = await setWarning(false)
-      const close = await handleClose()
+      await loadlist()
+      setWarning(false)
+      setApprove('')
+      handleClose()
+      console.log({ edit })
     } else {
       setWarning(true)
     }
@@ -204,7 +209,7 @@ const Profile = () => {
                               variant='contained'
                               startIcon={<ContentPasteIcon />}
                               color='primary'
-                              onClick={handleClickOpen}
+                              onClick={() => handleClickOpen(item._id)}
                             >
                               ลงชื่อผู้อนุมัติ
                             </Button>
@@ -220,34 +225,6 @@ const Profile = () => {
                               ลบข้อมูล
                             </Button>
                           </StyledTableCell>
-                          <Dialog
-                            open={open}
-                            onClose={handleClose}
-                            aria-labelledby='alert-dialog-title'
-                            aria-describedby='alert-dialog-description'
-                          >
-                            <DialogTitle id='alert-dialog-title'>
-                              {'กรุณากรอกชื่อผู้อนุมัติ'}
-                            </DialogTitle>
-                            <DialogContent>
-                              {warning === true ? (
-                                <p style={{ color: 'red' }}>กรุณากรอกข้อมูล</p>
-                              ) : null}
-                              <TextField
-                                color='primary'
-                                fullWidth
-                                label='ลงชื่อผู้อนุมติ'
-                                value={approve}
-                                onChange={e => setApprove(e.target.value)}
-                              />
-                            </DialogContent>
-                            <DialogActions>
-                              <Button onClick={() => approveData(item._id)}>
-                                อนุมัติคำขอ
-                              </Button>
-                              <Button onClick={handleClose}>ปิดหน้าต่าง</Button>
-                            </DialogActions>
-                          </Dialog>
                         </StyledTableRow>
                       </>
                     ))}
@@ -258,6 +235,32 @@ const Profile = () => {
           </div>
         </div>
       )}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
+      >
+        <DialogTitle id='alert-dialog-title'>
+          {'กรุณากรอกชื่อผู้อนุมัติ'}
+        </DialogTitle>
+        <DialogContent>
+          {warning === true ? (
+            <p style={{ color: 'red' }}>กรุณากรอกข้อมูล</p>
+          ) : null}
+          <TextField
+            color='primary'
+            fullWidth
+            label='ลงชื่อผู้อนุมติ'
+            value={approve}
+            onChange={e => setApprove(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => approveData(itemId)}>อนุมัติคำขอ</Button>
+          <Button onClick={handleClose}>ปิดหน้าต่าง</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   )
 }
