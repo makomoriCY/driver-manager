@@ -220,35 +220,35 @@ const Profile = () => {
                               ลบข้อมูล
                             </Button>
                           </StyledTableCell>
+                          <Dialog
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby='alert-dialog-title'
+                            aria-describedby='alert-dialog-description'
+                          >
+                            <DialogTitle id='alert-dialog-title'>
+                              {'กรุณากรอกชื่อผู้อนุมัติ'}
+                            </DialogTitle>
+                            <DialogContent>
+                              {warning === true ? (
+                                <p style={{ color: 'red' }}>กรุณากรอกข้อมูล</p>
+                              ) : null}
+                              <TextField
+                                color='primary'
+                                fullWidth
+                                label='ลงชื่อผู้อนุมติ'
+                                value={approve}
+                                onChange={e => setApprove(e.target.value)}
+                              />
+                            </DialogContent>
+                            <DialogActions>
+                              <Button onClick={() => approveData(item._id)}>
+                                อนุมัติคำขอ
+                              </Button>
+                              <Button onClick={handleClose}>ปิดหน้าต่าง</Button>
+                            </DialogActions>
+                          </Dialog>
                         </StyledTableRow>
-                        <Dialog
-                          open={open}
-                          onClose={handleClose}
-                          aria-labelledby='alert-dialog-title'
-                          aria-describedby='alert-dialog-description'
-                        >
-                          <DialogTitle id='alert-dialog-title'>
-                            {'กรุณากรอกชื่อผู้อนุมัติ'}
-                          </DialogTitle>
-                          <DialogContent>
-                            {warning === true ? (
-                              <p style={{ color: 'red' }}>กรุณากรอกข้อมูล</p>
-                            ) : null}
-                            <TextField
-                              color='primary'
-                              fullWidth
-                              label='ลงชื่อผู้อนุมติ'
-                              value={approve}
-                              onChange={e => setApprove(e.target.value)}
-                            />
-                          </DialogContent>
-                          <DialogActions>
-                            <Button onClick={() => approveData(item._id)}>
-                              อนุมัติคำขอ
-                            </Button>
-                            <Button onClick={handleClose}>ปิดหน้าต่าง</Button>
-                          </DialogActions>
-                        </Dialog>
                       </>
                     ))}
                   </TableBody>
