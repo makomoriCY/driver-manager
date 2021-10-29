@@ -7,7 +7,6 @@ const HomePage = () => {
   return (
     <div className="home__page">
       <div className="container__home">
-        <h1>ตารางกำหนดการจองรถ</h1>
         <div className="box__top">
           <Link to="/driver" style={{ textDecoration: "none" }}>
             <BoxPage title="จองคนขับ" />
@@ -20,7 +19,6 @@ const HomePage = () => {
           <Link to="/bookingReport" style={{ textDecoration: "none" }}>
             <BoxPage title="รายการจอง" />
           </Link>
-
           <Link to="/Contact" style={{ textDecoration: "none" }}>
             <BoxPage title="ติดต่อเรา" />
           </Link>

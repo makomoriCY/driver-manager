@@ -7,7 +7,6 @@ import "./Driver.css";
 import axios from "../../axios";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import { TextField } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 
 import Select from "@mui/material/Select";
@@ -67,8 +66,8 @@ const Driver = () => {
   }
   return (
     <div className="Dver__page">
-      <h1>จองคนขับ</h1>
       <div className="Box">
+      <h1>จองคนขับ</h1>
         <div className="input__margin">
           <p className="P" >เลือกประเภทการจอง</p>
 
@@ -155,7 +154,7 @@ const Driver = () => {
               label="จุดประสงค์"
               multiline
               fullWidth
-              rows={2}
+              rows={1}
               value={objective}
               onChange={(e) => setObjective(e.target.value)}
             />
@@ -165,7 +164,7 @@ const Driver = () => {
               label="จุดหมายปลายทาง"
               multiline
               fullWidth
-              rows={2}
+              rows={1}
               value={place}
               onChange={(e) => setPlace(e.target.value)}
             />

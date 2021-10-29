@@ -37,9 +37,9 @@ const Contact = () => {
 
   return (
     <div className="background___page">
-      <h1>ติดต่อเรา</h1>
 
-      <div className="Box">
+      <div className="Box__CT">
+      <h1>ติดต่อเรา</h1>
         <div className="Text__Box">
           <div className="Box__contact">
             <TextField
