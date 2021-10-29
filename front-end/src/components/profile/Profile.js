@@ -57,7 +57,6 @@ const Profile = () => {
     }
   }
 
-  
   console.log(data)
 
   function deleteData (id) {
@@ -68,17 +67,17 @@ const Profile = () => {
     loadlist()
   }
 
-  function approveData (id) {
+  async function approveData (id) {
     const data = {
       status: 'อนุมัติคำร้อง',
       approve: approve
     }
     if (approve !== '') {
-      axios
+      const edit = await axios
         .put(`schedule/${id}`, data)
         .then(() => console.log('ลบข้อมูล'))
         .catch(err => console.log(err))
-        refreh()
+      refreh()
     } else {
       setWarning(true)
     }
