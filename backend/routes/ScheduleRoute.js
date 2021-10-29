@@ -13,7 +13,6 @@ router.post('/', (req, res) => {
   const schedule = new scheduleModel({
     startDate: req.body.startDate,
     surname: req.body.surname,
-    lastname: req.body.lastname,
     department: req.body.department,
     objective: req.body.objective,
     type: req.body.type,
@@ -21,7 +20,9 @@ router.post('/', (req, res) => {
     place: req.body.place,
     endTime: req.body.endTime,
     startTime: req.body.startTime,
-    endDate: req.body.endDate
+    endDate: req.body.endDate,
+    status: "รอดำเนินการ",
+    approve: null
     
   })
 
@@ -37,12 +38,13 @@ router.put('/:id', (req, res) => {
     .then(data => {
       ;(data.startDate = req.body.startDate),
         (data.surname = req.body.surname),
-        (data.lastname = req.body.lastname),
         (data.department = req.body.department),
         (data.objective = req.body.objective),
         (data.type = req.body.type),
         (data.time = req.body.time),
-        (data.place = req.body.place)
+        (data.place = req.body.place),
+        (data.status = req.body.status),
+        (data.approve = req.body.approve)
 
       data
         .save()

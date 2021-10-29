@@ -54,15 +54,15 @@ const BookingReport = () => {
                 <StyledTableCell align="right">วันที่สิ้นสุด</StyledTableCell>
                 <StyledTableCell align="right">เวลาเริ่ม</StyledTableCell>
                 <StyledTableCell align="right">เวลาสิ้นสุด</StyledTableCell>
-                <StyledTableCell align="right">ผู้อนุมัติ</StyledTableCell>
                 <StyledTableCell align="right">สถานะคำร้อง</StyledTableCell>
+                <StyledTableCell align="right">ผู้อนุมัติ</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data.map((item, index) => (
                 <StyledTableRow key={index}>
                   <StyledTableCell component="th" scope="row">
-                    {`${item.surname} ${item.lastname}`}
+                    {item.surname} 
                   </StyledTableCell>
                   <StyledTableCell align="right">
                     {item.department}
@@ -85,9 +85,11 @@ const BookingReport = () => {
                     {item.endTime}
                   </StyledTableCell>
                   <StyledTableCell align="right">
+                    {item.status}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
                     {item.approve}
                   </StyledTableCell>
-                  <StyledTableCell align="right">รอดำเนินการ</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

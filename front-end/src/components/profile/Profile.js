@@ -12,7 +12,14 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
+import ContentPasteIcon from "@mui/icons-material/ContentPaste";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { TextField } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -33,6 +40,16 @@ const Profile = () => {
   const [password, setPassword] = useState("");
   const ID = "123456789";
   const PASSWORD = "123456789";
+  const [open, setOpen] = useState(false);
+  const [approve, setApprove] = useState("")
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   function login() {
     if (ID === username && password === PASSWORD) {
@@ -62,7 +79,6 @@ const Profile = () => {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }
-
 
   return (
     <div className="profile__page">
@@ -122,10 +138,10 @@ const Profile = () => {
                         เวลาสิ้นสุด
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                        ผู้อนุมัติ
+                        สถานะคำร้อง
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                        สถานะคำร้อง
+                        ผู้อนุมัติ
                       </StyledTableCell>
                       <StyledTableCell align="right">ลบข้อมูล</StyledTableCell>
                     </TableRow>
@@ -134,7 +150,7 @@ const Profile = () => {
                     {data.map((item, index) => (
                       <StyledTableRow key={index}>
                         <StyledTableCell component="th" scope="row">
-                          {`${item.surname} ${item.lastname}`}
+                          {item.surname}
                         </StyledTableCell>
                         <StyledTableCell align="right">
                           {item.department}
@@ -161,27 +177,62 @@ const Profile = () => {
                           {item.endTime}
                         </StyledTableCell>
                         <StyledTableCell align="right">
-                          {item.approve}
+                          {item.status}
                         </StyledTableCell>
                         <StyledTableCell align="right">
-                          รอดำเนินการ
+                          <Button
+                            variant="contained"
+                            startIcon={<ContentPasteIcon />}
+                            color="primary"
+                            onClick={handleClickOpen}
+                          >
+                            ลงชื่อผู้อนุมัติ
+                          </Button>
                         </StyledTableCell>
+
                         <StyledTableCell align="right">
-                        <Button variant="contained" startIcon={<DeleteIcon />} color="error" onClick={()=>deleteData(item._id)} >
-            ลบข้อมูล
-          </Button>
+                          <Button
+                            variant="contained"
+                            startIcon={<DeleteIcon />}
+                            color="error"
+                            onClick={() => deleteData(item._id)}
+                          >
+                            ลบข้อมูล
+                          </Button>
                         </StyledTableCell>
                       </StyledTableRow>
                     ))}
                   </TableBody>
                 </Table>
               </TableContainer>
-
-              
             </div>
           </div>
         </div>
       )}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"กรุณากรอกชื่อผู้อนุมัติ"}
+        </DialogTitle>
+        <DialogContent>
+        <TextField
+              color="primary"
+              fullWidth
+              value={approve}
+              onChange={(e) => setApprove(e.target.value)}
+            />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>อนุมัติคำขอ</Button>
+          <Button onClick={handleClose} >
+            ปิดหน้าต่าง
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

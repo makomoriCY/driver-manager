@@ -9,8 +9,7 @@ import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import { TextField } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
+
 import Select from "@mui/material/Select";
 
 const Driver = () => {
@@ -19,7 +18,6 @@ const Driver = () => {
   const [type, setType] = useState("");
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
   const [depart, setDepart] = useState("");
   const [objective, setObjective] = useState("");
   const [place, setPlace] = useState("");
@@ -30,7 +28,6 @@ const Driver = () => {
       startDate: date,
       endDate: enddate,
       surname: name,
-      lastname: lastname,
       department: depart,
       objective: objective,
       type: type,
@@ -42,7 +39,6 @@ const Driver = () => {
       !(
         date &&
         type &&
-        lastname &&
         depart &&
         objective &&
         name &&
@@ -60,7 +56,6 @@ const Driver = () => {
 
       setDate("");
       setDepart("");
-      setLastname("");
       setName("");
       setObjective("");
       setPlace("");
@@ -83,11 +78,14 @@ const Driver = () => {
             id="demo-simple-select-helper"
             label="Age"
             fullWidth
+            value={type}
+            onChange={(e) => setType(e.target.value)}
           >
             <MenuItem value="รถกระบะ">รถกระบะ</MenuItem>
             <MenuItem value="รถตู้">รถตู้</MenuItem>
             <MenuItem value="รถบรรทุกหกล้อ">รถบรรทุกหกล้อ</MenuItem>
             <MenuItem value="คนส่งเอกสาร">คนส่งเอกสาร</MenuItem>
+            
           </Select>
         </div>
         <div className="date__box">
@@ -135,14 +133,14 @@ const Driver = () => {
         <div className="Text__ip">
           <div className="input__margin">
             <TextField
-              label="ชื่อ"
+              label="ชื่อ-นามสกุล"
               color="primary"
               fullWidth
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className="input__margin">
+          {/* <div className="input__margin">
             <TextField
               label="นามสกุล"
               color="primary"
@@ -150,7 +148,7 @@ const Driver = () => {
               value={lastname}
               onChange={(e) => setLastname(e.target.value)}
             />
-          </div>
+          </div> */}
           <div className="input__margin">
             <TextField
               label="แผนก"
