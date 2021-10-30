@@ -69,7 +69,7 @@ router.delete("/:id", (req, res) => {
 });
 
 function sendnotification(name, department, type, approve) {
-  var sendData = `ชื่อผู้จอง : ${name}\n แผนก: ${department}\n ประเภทรถ: ${type}\n คนอนุมัติ: ${approve}\n https://driver-project-40da5.web.app/ `;
+  var sendData = `ชื่อผู้จอง : ${name}\n แผนก: ${department}\n ประเภทรถ: ${type}\n คนอนุมัติ: ${approve}\n ตรวจสอบสถานะรายการจอง: https://driver-project-40da5.web.app/bookingReport `;
   var token = "QHNr1EB1MI3MTfexVmZJ6XQZFdBrOrGX174DZW1y3W7";
   var message = sendData;
 
