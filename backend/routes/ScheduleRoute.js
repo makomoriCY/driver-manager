@@ -70,7 +70,7 @@ router.delete("/:id", (req, res) => {
 
 function sendnotification(name, department, type, approve) {
   var sendData = `ชื่อผู้จอง : ${name} แผนก: ${department} ประเภทรถ: ${type} คนอนุมัติ: ${approve} `;
-  var token = "KgyAfQs2PLJxra6vcWGnPumDagveZKdmXZyE7FKuHAg";
+  var token = "QHNr1EB1MI3MTfexVmZJ6XQZFdBrOrGX174DZW1y3W7";
   var message = sendData;
 
   console.log({ message });
@@ -98,32 +98,5 @@ function sendnotification(name, department, type, approve) {
     }
   );
 }
-
-// router.post('/test', function(req, res) {
-//   var token = 'KgyAfQs2PLJxra6vcWGnPumDagveZKdmXZyE7FKuHAg';
-//   var message = "ลองส่ง";
-//   request({
-//     method: 'POST',
-//     uri: 'https://notify-api.line.me/api/notify',
-//     headers: {
-//       'Content-Type': 'application/x-www-form-urlencoded'
-//     },
-//     auth: {
-//       'bearer': token
-//     },
-//     form: {
-//       message: message
-//     }
-//   }, (err, httpResponse, body) => {
-//     if(err){
-//       console.log(err);
-//     } else {
-//       res.json({
-//         httpResponse: httpResponse,
-//         body: "เทส"
-//       });
-//     }
-//   });
-// });
 
 module.exports = router;
