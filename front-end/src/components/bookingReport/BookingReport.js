@@ -12,7 +12,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import dayjs from 'dayjs'
+import * as dayjs from 'dayjs'
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -80,10 +80,10 @@ const BookingReport = () => {
                     {item.endDate}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    {dayjs(item.startTime).format('DD/MM/YYYY')}
+                    {dayjs(item.startTime).format('DD-MM-YYYY')}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    {dayjs(item.endTime).format('DD/MM/YYYY')}
+                    {dayjs(item.endTime).format('DD-MM-YYYY')}
                   </StyledTableCell>
                   <StyledTableCell align="right">
                     {item.status}
