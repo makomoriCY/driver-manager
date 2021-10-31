@@ -20,6 +20,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { TextField } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
+import * as dayjs from "dayjs";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -211,10 +212,10 @@ const Profile = () => {
                             {item.place}
                           </StyledTableCell>
                           <StyledTableCell align="right">
-                            {item.startDate}
+                            {dayjs(item.endDate).format("DD-MM-YYYY")}
                           </StyledTableCell>
                           <StyledTableCell align="right">
-                            {item.endDate}
+                            {dayjs(item.endDate).format("DD-MM-YYYY")}
                           </StyledTableCell>
                           <StyledTableCell align="right">
                             {item.startTime}
