@@ -62,7 +62,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  console.log('body', req.body.reason)
+  console.log('body', req.body)
   scheduleModel
     .findByIdAndDelete(req.params.id)
     .then((data) => {sendRejectNoti(data.surname, req.body.reason)})
