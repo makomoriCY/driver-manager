@@ -70,7 +70,7 @@ router.delete("/:id", (req, res) => {
 
 function sendnotification(name, department, type, approve) {
   var sendData = `ชื่อผู้จอง : ${name}\n แผนก: ${department}\n ประเภทรถ: ${type}\n คนอนุมัติ: ${approve}\n ตรวจสอบสถานะรายการจอง: https://driver-project-40da5.web.app/bookingReport `;
-  var token = "QHNr1EB1MI3MTfexVmZJ6XQZFdBrOrGX174DZW1y3W7";
+  var token = "rZg0KIwbrn3aaOGzEZSN6paRfXL2FpJXMOe6Ad4qG2a";
   var message = sendData;
 
   console.log({ message });
@@ -80,7 +80,7 @@ function sendnotification(name, department, type, approve) {
       method: "POST",
       uri: "https://notify-api.line.me/api/notify",
       headers: {
-        "Content-Type": "ppHODDeTiIG1Sy6IKvHGzQUNQr6O9zm14J0SowZpiCK",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       auth: {
         bearer: token,
