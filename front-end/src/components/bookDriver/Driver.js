@@ -67,9 +67,9 @@ const Driver = () => {
   return (
     <div className="Dver__page">
       <div className="Box">
-      <h1>จองคนขับ</h1>
+        <h1>จองคนขับ</h1>
         <div className="input__margin">
-          <p className="P" >เลือกประเภทการจอง</p>
+          <p className="P">เลือกประเภทการจอง</p>
 
           <Select
             labelId="demo-simple-select-helper-label"
@@ -83,10 +83,9 @@ const Driver = () => {
             <MenuItem value="รถตู้">รถตู้</MenuItem>
             <MenuItem value="รถตู้2">รถตู้2</MenuItem>
             <MenuItem value="รถบรรทุกหกล้อ">รถบรรทุกหกล้อ</MenuItem>
-            <MenuItem value="คนส่งเอกสาร">คนส่งเอกสาร</MenuItem>
           </Select>
         </div>
-        <p className="P" >วันที่เริ่มต้น-วันที่สิ่นสุด</p>
+        <p className="P">วันที่เริ่มต้น-วันที่สิ่นสุด</p>
         <div className="date__box">
           <div className="input__margin">
             <TextField
@@ -107,7 +106,7 @@ const Driver = () => {
             />
           </div>
         </div>
-        <p className="P" >เวลาเริ่มต้น-เวลาสิ่นสุด</p>
+        <p className="P">เวลาเริ่มต้น-เวลาสิ่นสุด</p>
         <div className="time__box">
           <div className="input__margin">
             <TextField

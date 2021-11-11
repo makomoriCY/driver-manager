@@ -80,7 +80,7 @@ function sendnotification(name, department, type, approve) {
       method: "POST",
       uri: "https://notify-api.line.me/api/notify",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "ppHODDeTiIG1Sy6IKvHGzQUNQr6O9zm14J0SowZpiCK",
       },
       auth: {
         bearer: token,
