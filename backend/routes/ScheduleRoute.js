@@ -62,12 +62,12 @@ router.get('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  console.log('body', req.body.data)
-  // scheduleModel
-  //   .findByIdAndDelete(req.params.id)
-  //   .then((data) => {sendRejectNoti(data.surname, req.body.reason)})
-  //   .then(() => res.json('Delete!'))
-  //   .catch(err => res.status(400).json(`error:${err}`))
+  console.log('body', req.body.reason)
+  scheduleModel
+    .findByIdAndDelete(req.params.id)
+    .then((data) => {sendRejectNoti(data.surname, req.body.reason)})
+    .then(() => res.json('Delete!')) 
+    .catch(err => res.status(400).json(`error:${err}`))
 })
 
 function sendnotification (name, department, type, approve) {

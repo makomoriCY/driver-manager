@@ -89,7 +89,7 @@ const Profile = () => {
     }
     if (reject !== '') {
       const reject = await axios
-        .delete(`schedule/${id}`, data)
+        .delete(`schedule/${id}`, {data:data})
         .then(() => console.log('ลบข้อมูล'))
         .catch(err => console.log(err))
       loadlist()
