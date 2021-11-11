@@ -81,6 +81,7 @@ const Driver = () => {
           >
             <MenuItem value="รถกระบะ">รถกระบะ</MenuItem>
             <MenuItem value="รถตู้">รถตู้</MenuItem>
+            <MenuItem value="รถตู้2">รถตู้2</MenuItem>
             <MenuItem value="รถบรรทุกหกล้อ">รถบรรทุกหกล้อ</MenuItem>
             <MenuItem value="คนส่งเอกสาร">คนส่งเอกสาร</MenuItem>
           </Select>
