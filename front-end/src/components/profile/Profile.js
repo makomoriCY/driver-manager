@@ -81,12 +81,12 @@ const Profile = () => {
     }
   }
 
+  console.log('reject reason', reject)
+
   async function deleteData (id) {
     const data = {
-      status: 'อนุมัติคำร้อง',
       reason: reject
     }
-
     if (reject !== '') {
       const reject = await axios
         .delete(`schedule/${id}`, data)
