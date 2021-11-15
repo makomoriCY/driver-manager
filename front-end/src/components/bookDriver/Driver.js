@@ -8,7 +8,6 @@ import axios from "../../axios";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import { TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-
 import Select from "@mui/material/Select";
 
 const Driver = () => {
@@ -67,7 +66,7 @@ const Driver = () => {
   return (
     <div className="Dver__page">
       <div className="Box">
-        <h1>จองคนขับ</h1>
+        <h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>
         <div className="input__margin">
           <p className="P">เลือกประเภทการจอง</p>
 
@@ -80,7 +79,7 @@ const Driver = () => {
             onChange={(e) => setType(e.target.value)}
           >
             <MenuItem value="รถกระบะ">รถกระบะ</MenuItem>
-            <MenuItem value="รถตู้">รถตู้</MenuItem>
+            <MenuItem value="รถตู้1">รถตู้1</MenuItem>
             <MenuItem value="รถตู้2">รถตู้2</MenuItem>
             <MenuItem value="รถบรรทุกหกล้อ">รถบรรทุกหกล้อ</MenuItem>
           </Select>

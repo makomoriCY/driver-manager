@@ -9,10 +9,10 @@ const HomePage = () => {
       <div className="container__home">
         <div className="box__top">
           <Link to="/driver" style={{ textDecoration: "none" }}>
-            <BoxPage title="จองคนขับ" />
+            <BoxPage title="จองรถ" />
           </Link>
           <Link to="/profile" style={{ textDecoration: "none" }}>
-            <BoxPage title="จัดการตารางการจอง" />
+            <BoxPage title="จัดการตารางจอง" />
           </Link>
         </div>
         <div className="box__buttom">

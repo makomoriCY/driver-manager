@@ -39,8 +39,8 @@ const Profile = () => {
   const [isAdmin, setIsAdmin] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const ID = 'Superwoman'
-  const PASSWORD = '429856'
+  const ID = '12345'
+  const PASSWORD = '12345'
   const [open, setOpen] = useState(false)
   const [rejectDialog, setRejectDialog] = useState(false)
   const [approve, setApprove] = useState('')
