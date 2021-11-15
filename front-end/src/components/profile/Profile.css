@@ -59,4 +59,16 @@ td {
 .Cl{
   margin: 25px 0 0 0;
 }
+@media only screen and (max-device-width: 480px){
+  .Box__Admin{
+    background-color: rgba(214, 204, 218, 0.781);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    height: 50%;
+    width: 350px;
+    margin: 15% 0 0 0; 
+  }
+}
 

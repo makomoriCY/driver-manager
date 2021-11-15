@@ -66,7 +66,7 @@ const Driver = () => {
   return (
     <div className="Dver__page">
       <div className="Box">
-        <h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>
+        <h1 className="H1">กรุณากรอกข้อมูลให้ครบถ้วน</h1>
         <div className="input__margin">
           <p className="P">เลือกประเภทการจอง</p>
 
